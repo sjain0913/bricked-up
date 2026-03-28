@@ -13,7 +13,9 @@ Build an iOS app replicating Brick's core screen time control features using per
 
 ---
 
-## Phase 0: Project Configuration & Shared Infrastructure
+## Wave 0 — Foundation (sequential; blocks everything else)
+
+Nothing else starts until this is done: capabilities, App Group, SwiftData models, and FamilyControls authorization.
 
 ### Xcode Manual Steps (must be done in Xcode UI)
 - Add capabilities to main target: **Family Controls**, **NFC Tag Reading**, **App Groups** (`group.com.sam.bricked-up`)
@@ -39,22 +41,28 @@ Build an iOS app replicating Brick's core screen time control features using per
 
 ---
 
-## Phase 1: NFC Tap-to-Lock/Unlock
+## Wave 1 — Two parallel tracks (after Wave 0)
+
+These can run **in tandem** by two people (or alternating days). Define a small **BrickingService** contract up front: e.g. `toggleLock(for mode:)` calls into shielding and updates `AppState` + sessions so neither track blocks the other for long.
+
+### Track 1A — NFC tap & chip registration
+**Depends on:** Wave 0 only.
 
 ### New Files
 - `Services/NFCService.swift` — `NFCTagReaderSession` with `.iso14443` polling to read hardware UID (secure, non-clonable)
-- `Services/BrickingService.swift` — Central orchestrator: validates chip, toggles state, applies/removes shields, creates sessions
+- `Services/BrickingService.swift` — Central orchestrator: validates chip, toggles state, applies/removes shields, creates sessions (stub shield calls behind a protocol until Track 1B lands)
 - `Views/Onboarding/NFCRegistrationView.swift` — Scan + register NFC chip on first use
 
 ### Key Detail
 Use `NFCISO7816Tag.identifier` (hardware UID) not NDEF content — it's burned into the chip and can't be cloned.
 
 ### Verification
-- Scan NFC tag, see UID logged; register chip; re-scan and app recognizes it; state toggles on tap
+- Scan NFC tag, see UID logged; register chip; re-scan and app recognizes it; state toggles on tap (even if shield application is still stubbed)
 
 ---
 
-## Phase 2: App & Website Blocking via Screen Time API
+### Track 1B — App & website blocking (Screen Time API)
+**Depends on:** Wave 0 only. Does **not** require NFC to test—use a temporary debug button to apply/remove shields.
 
 ### New Files
 - `Services/ShieldingService.swift` — Wraps `ManagedSettingsStore`; applies/removes shields per mode using named stores. Handles both app shields AND web content restrictions.
@@ -78,14 +86,23 @@ Use `NFCISO7816Tag.identifier` (hardware UID) not NDEF content — it's burned i
 - `FamilyActivityPicker` already supports web domain selection — the same picker can select both apps and domains.
 
 ### Verification
-- Select apps AND websites via FamilyActivityPicker; NFC tap blocks them all
+- Select apps AND websites via FamilyActivityPicker; debug toggle blocks them all
 - Blocked apps show shield overlay; blocked websites show restriction page in Safari
 - Manually added domains (e.g., reddit.com) are also blocked
-- Tap NFC again to unblock everything
+- Debug toggle unblocks everything
+
+### Merge (Wave 1)
+- Wire **BrickingService** to real **ShieldingService** (replace stubs).
+- End-to-end: NFC tap blocks/unblocks selected apps and sites for the active mode.
 
 ---
 
-## Phase 3: Custom Blocking Modes
+## Wave 2 — Three parallel tracks (after Wave 1 merge)
+
+All three assume **BlockingMode** persistence, **ShieldingService**, and **BrickingService** are integrated. Teams should agree on **UserDefaults keys** for serialized `FamilyActivitySelection` per mode (used by extensions) before splitting work.
+
+### Track 2A — Custom blocking modes & home UI
+**Depends on:** Wave 1 merge (modes must apply real shields).
 
 ### New Files
 - `Views/Modes/ModeListView.swift` — List of modes (up to 10), swipe to delete
@@ -98,7 +115,8 @@ Use `NFCISO7816Tag.identifier` (hardware UID) not NDEF content — it's burned i
 
 ---
 
-## Phase 4: Scheduling
+### Track 2B — Scheduling
+**Depends on:** Wave 1 merge; **needs** serialized mode payloads in App Group (coordinate with Track 2A on when modes are saved to UserDefaults).
 
 ### New Files
 - `Services/ScheduleService.swift` — Registers/unregisters `DeviceActivitySchedule` with `DeviceActivityCenter`
@@ -116,7 +134,8 @@ Extensions have ~6MB memory limit. Keep them minimal — read only from UserDefa
 
 ---
 
-## Phase 5: Usage Tracking & Streaks
+### Track 2C — Usage tracking & streaks
+**Depends on:** `BrickSession` writes from **BrickingService** (Wave 1). Can implement UI with mock data until sessions are wired, then swap in real **StatsService**.
 
 ### New Files
 - `Services/StatsService.swift` — Queries BrickSession data: daily totals, streaks, weekly aggregates
@@ -128,7 +147,9 @@ Extensions have ~6MB memory limit. Keep them minimal — read only from UserDefa
 
 ---
 
-## Phase 6: Navigation & Onboarding
+## Wave 3 — Shell & onboarding (after Wave 2 features exist)
+
+**Depends on:** Tabs need destinations for Home, Modes, Schedule, Stats; onboarding assumes NFC + FamilyControls + first mode flow works.
 
 ### Modify
 - `ContentView.swift` — Replace Hello World with TabView (Home, Modes, Schedule, Stats, Settings)
@@ -156,5 +177,13 @@ Extensions have ~6MB memory limit. Keep them minimal — read only from UserDefa
 ## Required Frameworks
 CoreNFC, FamilyControls, ManagedSettings, DeviceActivity, SwiftData, Charts
 
-## Implementation Order
-Phase 0 first (manual Xcode setup). Then Phases 1 & 2 can be done in parallel. Then 3 → 4 → 5 → 6 sequentially.
+## Parallel execution summary
+
+| When | Who can work in parallel |
+|------|---------------------------|
+| **Wave 0** | One person only (foundation). |
+| **Wave 1** | **Track 1A (NFC + BrickingService)** and **Track 1B (Shielding + extensions + pickers)** together; merge before Wave 2. |
+| **Wave 2** | **Track 2A (modes + home)**, **Track 2B (scheduling + DeviceActivity extension)**, **Track 2C (stats)** together; align on UserDefaults keys for modes/schedules. |
+| **Wave 3** | Usually one owner (navigation + onboarding) once core tabs are reviewable. |
+
+**Critical path (shortest sequence if only one developer):** Wave 0 → Wave 1 (1A then 1B, or 1B before 1A if you prefer testing shields first) → merge → Wave 2 can follow 2A → 2B → 2C or interleave 2C early if session logging is stable → Wave 3.
