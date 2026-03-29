@@ -6,19 +6,42 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @Query private var chips: [NFCChip]
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
-#Preview {
-    ContentView()
+    var body: some View {
+        if !hasCompletedOnboarding {
+            OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
+        } else {
+            TabView {
+                HomeView()
+                    .tabItem {
+                        Label("Home", systemImage: "lock.fill")
+                    }
+
+                ModeListView()
+                    .tabItem {
+                        Label("Modes", systemImage: "square.grid.2x2")
+                    }
+
+                ScheduleListView()
+                    .tabItem {
+                        Label("Schedule", systemImage: "calendar")
+                    }
+
+                StatsView()
+                    .tabItem {
+                        Label("Stats", systemImage: "chart.bar.fill")
+                    }
+
+                SettingsView()
+                    .tabItem {
+                        Label("Settings", systemImage: "gear")
+                    }
+            }
+        }
+    }
 }

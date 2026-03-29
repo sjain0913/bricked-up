@@ -7,49 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E10E1672F7885320053CCE9 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E10E1662F7885320053CCE9 /* DeviceActivity.framework */; };
-		2E10E16F2F7885320053CCE9 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E10E1642F7885320053CCE9 /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2E10E17B2F7885590053CCE9 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E10E17A2F7885590053CCE9 /* ManagedSettings.framework */; };
-		2E10E17D2F7885590053CCE9 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E10E17C2F7885590053CCE9 /* ManagedSettingsUI.framework */; };
-		2E10E1852F7885590053CCE9 /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E10E1792F7885590053CCE9 /* ShieldConfigurationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2E10E18F2F7885700053CCE9 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E10E17A2F7885590053CCE9 /* ManagedSettings.framework */; };
-		2E10E1972F7885700053CCE9 /* ShieldActionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E10E18E2F7885700053CCE9 /* ShieldActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2E685C5F2F788D8100E4ECB2 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E685C5E2F788D8100E4ECB2 /* DeviceActivity.framework */; };
+		2E685C732F788D9400E4ECB2 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E685C722F788D9400E4ECB2 /* ManagedSettings.framework */; };
+		2E685C752F788D9400E4ECB2 /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E685C742F788D9400E4ECB2 /* ManagedSettingsUI.framework */; };
+		2E685C872F788DA000E4ECB2 /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E685C722F788D9400E4ECB2 /* ManagedSettings.framework */; };
+		2ED4EFF32F789F8700343A59 /* DeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E685C5C2F788D8100E4ECB2 /* DeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2ED4EFF42F789F8700343A59 /* ShieldConfiguration.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E685C712F788D9400E4ECB2 /* ShieldConfiguration.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2ED4EFF52F789F8700343A59 /* ShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2E685C862F788DA000E4ECB2 /* ShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2E10E16D2F7885320053CCE9 /* PBXContainerItemProxy */ = {
+		2E685C652F788D8100E4ECB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2E10E1492F7882E20053CCE9 /* Project object */;
+			containerPortal = 2E685C422F788D6100E4ECB2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2E10E1632F7885320053CCE9;
-			remoteInfo = DeviceActivityMonitorExtension;
+			remoteGlobalIDString = 2E685C5B2F788D8100E4ECB2;
+			remoteInfo = DeviceActivityMonitor;
 		};
-		2E10E1832F7885590053CCE9 /* PBXContainerItemProxy */ = {
+		2E685C7B2F788D9400E4ECB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2E10E1492F7882E20053CCE9 /* Project object */;
+			containerPortal = 2E685C422F788D6100E4ECB2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2E10E1782F7885590053CCE9;
-			remoteInfo = ShieldConfigurationExtension;
+			remoteGlobalIDString = 2E685C702F788D9400E4ECB2;
+			remoteInfo = ShieldConfiguration;
 		};
-		2E10E1952F7885700053CCE9 /* PBXContainerItemProxy */ = {
+		2E685C8D2F788DA000E4ECB2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2E10E1492F7882E20053CCE9 /* Project object */;
+			containerPortal = 2E685C422F788D6100E4ECB2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2E10E18D2F7885700053CCE9;
-			remoteInfo = ShieldActionExtension;
+			remoteGlobalIDString = 2E685C852F788DA000E4ECB2;
+			remoteInfo = ShieldAction;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		2E10E1742F7885320053CCE9 /* Embed Foundation Extensions */ = {
+		2E685C6C2F788D8100E4ECB2 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2E10E1852F7885590053CCE9 /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */,
-				2E10E16F2F7885320053CCE9 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */,
-				2E10E1972F7885700053CCE9 /* ShieldActionExtension.appex in Embed Foundation Extensions */,
+				2ED4EFF32F789F8700343A59 /* DeviceActivityMonitor.appex in Embed Foundation Extensions */,
+				2ED4EFF42F789F8700343A59 /* ShieldConfiguration.appex in Embed Foundation Extensions */,
+				2ED4EFF52F789F8700343A59 /* ShieldAction.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,136 +57,136 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2E10E1512F7882E20053CCE9 /* bricked-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bricked-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E10E1642F7885320053CCE9 /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E10E1662F7885320053CCE9 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
-		2E10E1792F7885590053CCE9 /* ShieldConfigurationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfigurationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E10E17A2F7885590053CCE9 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
-		2E10E17C2F7885590053CCE9 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
-		2E10E18E2F7885700053CCE9 /* ShieldActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E685C4A2F788D6100E4ECB2 /* bricked-up-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bricked-up-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E685C5C2F788D8100E4ECB2 /* DeviceActivityMonitor.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E685C5E2F788D8100E4ECB2 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		2E685C712F788D9400E4ECB2 /* ShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E685C722F788D9400E4ECB2 /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		2E685C742F788D9400E4ECB2 /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		2E685C862F788DA000E4ECB2 /* ShieldAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2E10E1702F7885320053CCE9 /* Exceptions for "DeviceActivityMonitorExtension" folder in "DeviceActivityMonitorExtension" target */ = {
+		2E685C682F788D8100E4ECB2 /* Exceptions for "DeviceActivityMonitor" folder in "DeviceActivityMonitor" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 2E10E1632F7885320053CCE9 /* DeviceActivityMonitorExtension */;
+			target = 2E685C5B2F788D8100E4ECB2 /* DeviceActivityMonitor */;
 		};
-		2E10E1862F7885590053CCE9 /* Exceptions for "ShieldConfigurationExtension" folder in "ShieldConfigurationExtension" target */ = {
+		2E685C7E2F788D9400E4ECB2 /* Exceptions for "ShieldConfiguration" folder in "ShieldConfiguration" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 2E10E1782F7885590053CCE9 /* ShieldConfigurationExtension */;
+			target = 2E685C702F788D9400E4ECB2 /* ShieldConfiguration */;
 		};
-		2E10E1982F7885700053CCE9 /* Exceptions for "ShieldActionExtension" folder in "ShieldActionExtension" target */ = {
+		2E685C902F788DA000E4ECB2 /* Exceptions for "ShieldAction" folder in "ShieldAction" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 2E10E18D2F7885700053CCE9 /* ShieldActionExtension */;
+			target = 2E685C852F788DA000E4ECB2 /* ShieldAction */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2E10E1532F7882E20053CCE9 /* bricked-up-ios */ = {
+		2E685C4C2F788D6100E4ECB2 /* bricked-up-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "bricked-up-ios";
 			sourceTree = "<group>";
 		};
-		2E10E1682F7885320053CCE9 /* DeviceActivityMonitorExtension */ = {
+		2E685C602F788D8100E4ECB2 /* DeviceActivityMonitor */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2E10E1702F7885320053CCE9 /* Exceptions for "DeviceActivityMonitorExtension" folder in "DeviceActivityMonitorExtension" target */,
+				2E685C682F788D8100E4ECB2 /* Exceptions for "DeviceActivityMonitor" folder in "DeviceActivityMonitor" target */,
 			);
-			path = DeviceActivityMonitorExtension;
+			path = DeviceActivityMonitor;
 			sourceTree = "<group>";
 		};
-		2E10E17E2F7885590053CCE9 /* ShieldConfigurationExtension */ = {
+		2E685C762F788D9400E4ECB2 /* ShieldConfiguration */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2E10E1862F7885590053CCE9 /* Exceptions for "ShieldConfigurationExtension" folder in "ShieldConfigurationExtension" target */,
+				2E685C7E2F788D9400E4ECB2 /* Exceptions for "ShieldConfiguration" folder in "ShieldConfiguration" target */,
 			);
-			path = ShieldConfigurationExtension;
+			path = ShieldConfiguration;
 			sourceTree = "<group>";
 		};
-		2E10E1902F7885700053CCE9 /* ShieldActionExtension */ = {
+		2E685C882F788DA000E4ECB2 /* ShieldAction */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2E10E1982F7885700053CCE9 /* Exceptions for "ShieldActionExtension" folder in "ShieldActionExtension" target */,
+				2E685C902F788DA000E4ECB2 /* Exceptions for "ShieldAction" folder in "ShieldAction" target */,
 			);
-			path = ShieldActionExtension;
+			path = ShieldAction;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2E10E14E2F7882E20053CCE9 /* Frameworks */ = {
+		2E685C472F788D6100E4ECB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E1612F7885320053CCE9 /* Frameworks */ = {
+		2E685C592F788D8100E4ECB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E10E1672F7885320053CCE9 /* DeviceActivity.framework in Frameworks */,
+				2E685C5F2F788D8100E4ECB2 /* DeviceActivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E1762F7885590053CCE9 /* Frameworks */ = {
+		2E685C6E2F788D9400E4ECB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E10E17B2F7885590053CCE9 /* ManagedSettings.framework in Frameworks */,
-				2E10E17D2F7885590053CCE9 /* ManagedSettingsUI.framework in Frameworks */,
+				2E685C732F788D9400E4ECB2 /* ManagedSettings.framework in Frameworks */,
+				2E685C752F788D9400E4ECB2 /* ManagedSettingsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E18B2F7885700053CCE9 /* Frameworks */ = {
+		2E685C832F788DA000E4ECB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E10E18F2F7885700053CCE9 /* ManagedSettings.framework in Frameworks */,
+				2E685C872F788DA000E4ECB2 /* ManagedSettings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E10E1482F7882E20053CCE9 = {
+		2E685C412F788D6100E4ECB2 = {
 			isa = PBXGroup;
 			children = (
-				2E10E1532F7882E20053CCE9 /* bricked-up-ios */,
-				2E10E1682F7885320053CCE9 /* DeviceActivityMonitorExtension */,
-				2E10E17E2F7885590053CCE9 /* ShieldConfigurationExtension */,
-				2E10E1902F7885700053CCE9 /* ShieldActionExtension */,
-				2E10E1652F7885320053CCE9 /* Frameworks */,
-				2E10E1522F7882E20053CCE9 /* Products */,
+				2E685C4C2F788D6100E4ECB2 /* bricked-up-ios */,
+				2E685C602F788D8100E4ECB2 /* DeviceActivityMonitor */,
+				2E685C762F788D9400E4ECB2 /* ShieldConfiguration */,
+				2E685C882F788DA000E4ECB2 /* ShieldAction */,
+				2E685C5D2F788D8100E4ECB2 /* Frameworks */,
+				2E685C4B2F788D6100E4ECB2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2E10E1522F7882E20053CCE9 /* Products */ = {
+		2E685C4B2F788D6100E4ECB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E10E1512F7882E20053CCE9 /* bricked-up-ios.app */,
-				2E10E1642F7885320053CCE9 /* DeviceActivityMonitorExtension.appex */,
-				2E10E1792F7885590053CCE9 /* ShieldConfigurationExtension.appex */,
-				2E10E18E2F7885700053CCE9 /* ShieldActionExtension.appex */,
+				2E685C4A2F788D6100E4ECB2 /* bricked-up-ios.app */,
+				2E685C5C2F788D8100E4ECB2 /* DeviceActivityMonitor.appex */,
+				2E685C712F788D9400E4ECB2 /* ShieldConfiguration.appex */,
+				2E685C862F788DA000E4ECB2 /* ShieldAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2E10E1652F7885320053CCE9 /* Frameworks */ = {
+		2E685C5D2F788D8100E4ECB2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2E10E1662F7885320053CCE9 /* DeviceActivity.framework */,
-				2E10E17A2F7885590053CCE9 /* ManagedSettings.framework */,
-				2E10E17C2F7885590053CCE9 /* ManagedSettingsUI.framework */,
+				2E685C5E2F788D8100E4ECB2 /* DeviceActivity.framework */,
+				2E685C722F788D9400E4ECB2 /* ManagedSettings.framework */,
+				2E685C742F788D9400E4ECB2 /* ManagedSettingsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -194,167 +194,167 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E10E1502F7882E20053CCE9 /* bricked-up-ios */ = {
+		2E685C492F788D6100E4ECB2 /* bricked-up-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E10E15C2F7882E30053CCE9 /* Build configuration list for PBXNativeTarget "bricked-up-ios" */;
+			buildConfigurationList = 2E685C552F788D6200E4ECB2 /* Build configuration list for PBXNativeTarget "bricked-up-ios" */;
 			buildPhases = (
-				2E10E14D2F7882E20053CCE9 /* Sources */,
-				2E10E14E2F7882E20053CCE9 /* Frameworks */,
-				2E10E14F2F7882E20053CCE9 /* Resources */,
-				2E10E1742F7885320053CCE9 /* Embed Foundation Extensions */,
+				2E685C462F788D6100E4ECB2 /* Sources */,
+				2E685C472F788D6100E4ECB2 /* Frameworks */,
+				2E685C482F788D6100E4ECB2 /* Resources */,
+				2E685C6C2F788D8100E4ECB2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2E10E16E2F7885320053CCE9 /* PBXTargetDependency */,
-				2E10E1842F7885590053CCE9 /* PBXTargetDependency */,
-				2E10E1962F7885700053CCE9 /* PBXTargetDependency */,
+				2E685C662F788D8100E4ECB2 /* PBXTargetDependency */,
+				2E685C7C2F788D9400E4ECB2 /* PBXTargetDependency */,
+				2E685C8E2F788DA000E4ECB2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2E10E1532F7882E20053CCE9 /* bricked-up-ios */,
+				2E685C4C2F788D6100E4ECB2 /* bricked-up-ios */,
 			);
 			name = "bricked-up-ios";
 			packageProductDependencies = (
 			);
 			productName = "bricked-up-ios";
-			productReference = 2E10E1512F7882E20053CCE9 /* bricked-up-ios.app */;
+			productReference = 2E685C4A2F788D6100E4ECB2 /* bricked-up-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2E10E1632F7885320053CCE9 /* DeviceActivityMonitorExtension */ = {
+		2E685C5B2F788D8100E4ECB2 /* DeviceActivityMonitor */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E10E1712F7885320053CCE9 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */;
+			buildConfigurationList = 2E685C692F788D8100E4ECB2 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitor" */;
 			buildPhases = (
-				2E10E1602F7885320053CCE9 /* Sources */,
-				2E10E1612F7885320053CCE9 /* Frameworks */,
-				2E10E1622F7885320053CCE9 /* Resources */,
+				2E685C582F788D8100E4ECB2 /* Sources */,
+				2E685C592F788D8100E4ECB2 /* Frameworks */,
+				2E685C5A2F788D8100E4ECB2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2E10E1682F7885320053CCE9 /* DeviceActivityMonitorExtension */,
+				2E685C602F788D8100E4ECB2 /* DeviceActivityMonitor */,
 			);
-			name = DeviceActivityMonitorExtension;
+			name = DeviceActivityMonitor;
 			packageProductDependencies = (
 			);
-			productName = DeviceActivityMonitorExtension;
-			productReference = 2E10E1642F7885320053CCE9 /* DeviceActivityMonitorExtension.appex */;
+			productName = DeviceActivityMonitor;
+			productReference = 2E685C5C2F788D8100E4ECB2 /* DeviceActivityMonitor.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		2E10E1782F7885590053CCE9 /* ShieldConfigurationExtension */ = {
+		2E685C702F788D9400E4ECB2 /* ShieldConfiguration */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E10E1872F7885590053CCE9 /* Build configuration list for PBXNativeTarget "ShieldConfigurationExtension" */;
+			buildConfigurationList = 2E685C7F2F788D9400E4ECB2 /* Build configuration list for PBXNativeTarget "ShieldConfiguration" */;
 			buildPhases = (
-				2E10E1752F7885590053CCE9 /* Sources */,
-				2E10E1762F7885590053CCE9 /* Frameworks */,
-				2E10E1772F7885590053CCE9 /* Resources */,
+				2E685C6D2F788D9400E4ECB2 /* Sources */,
+				2E685C6E2F788D9400E4ECB2 /* Frameworks */,
+				2E685C6F2F788D9400E4ECB2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2E10E17E2F7885590053CCE9 /* ShieldConfigurationExtension */,
+				2E685C762F788D9400E4ECB2 /* ShieldConfiguration */,
 			);
-			name = ShieldConfigurationExtension;
+			name = ShieldConfiguration;
 			packageProductDependencies = (
 			);
-			productName = ShieldConfigurationExtension;
-			productReference = 2E10E1792F7885590053CCE9 /* ShieldConfigurationExtension.appex */;
+			productName = ShieldConfiguration;
+			productReference = 2E685C712F788D9400E4ECB2 /* ShieldConfiguration.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		2E10E18D2F7885700053CCE9 /* ShieldActionExtension */ = {
+		2E685C852F788DA000E4ECB2 /* ShieldAction */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E10E1992F7885700053CCE9 /* Build configuration list for PBXNativeTarget "ShieldActionExtension" */;
+			buildConfigurationList = 2E685C912F788DA000E4ECB2 /* Build configuration list for PBXNativeTarget "ShieldAction" */;
 			buildPhases = (
-				2E10E18A2F7885700053CCE9 /* Sources */,
-				2E10E18B2F7885700053CCE9 /* Frameworks */,
-				2E10E18C2F7885700053CCE9 /* Resources */,
+				2E685C822F788DA000E4ECB2 /* Sources */,
+				2E685C832F788DA000E4ECB2 /* Frameworks */,
+				2E685C842F788DA000E4ECB2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2E10E1902F7885700053CCE9 /* ShieldActionExtension */,
+				2E685C882F788DA000E4ECB2 /* ShieldAction */,
 			);
-			name = ShieldActionExtension;
+			name = ShieldAction;
 			packageProductDependencies = (
 			);
-			productName = ShieldActionExtension;
-			productReference = 2E10E18E2F7885700053CCE9 /* ShieldActionExtension.appex */;
+			productName = ShieldAction;
+			productReference = 2E685C862F788DA000E4ECB2 /* ShieldAction.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2E10E1492F7882E20053CCE9 /* Project object */ = {
+		2E685C422F788D6100E4ECB2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
-					2E10E1502F7882E20053CCE9 = {
+					2E685C492F788D6100E4ECB2 = {
 						CreatedOnToolsVersion = 26.4;
 					};
-					2E10E1632F7885320053CCE9 = {
+					2E685C5B2F788D8100E4ECB2 = {
 						CreatedOnToolsVersion = 26.4;
 					};
-					2E10E1782F7885590053CCE9 = {
+					2E685C702F788D9400E4ECB2 = {
 						CreatedOnToolsVersion = 26.4;
 					};
-					2E10E18D2F7885700053CCE9 = {
+					2E685C852F788DA000E4ECB2 = {
 						CreatedOnToolsVersion = 26.4;
 					};
 				};
 			};
-			buildConfigurationList = 2E10E14C2F7882E20053CCE9 /* Build configuration list for PBXProject "bricked-up-ios" */;
+			buildConfigurationList = 2E685C452F788D6100E4ECB2 /* Build configuration list for PBXProject "bricked-up-ios" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2E10E1482F7882E20053CCE9;
+			mainGroup = 2E685C412F788D6100E4ECB2;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 2E10E1522F7882E20053CCE9 /* Products */;
+			productRefGroup = 2E685C4B2F788D6100E4ECB2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E10E1502F7882E20053CCE9 /* bricked-up-ios */,
-				2E10E1632F7885320053CCE9 /* DeviceActivityMonitorExtension */,
-				2E10E1782F7885590053CCE9 /* ShieldConfigurationExtension */,
-				2E10E18D2F7885700053CCE9 /* ShieldActionExtension */,
+				2E685C492F788D6100E4ECB2 /* bricked-up-ios */,
+				2E685C5B2F788D8100E4ECB2 /* DeviceActivityMonitor */,
+				2E685C702F788D9400E4ECB2 /* ShieldConfiguration */,
+				2E685C852F788DA000E4ECB2 /* ShieldAction */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2E10E14F2F7882E20053CCE9 /* Resources */ = {
+		2E685C482F788D6100E4ECB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E1622F7885320053CCE9 /* Resources */ = {
+		2E685C5A2F788D8100E4ECB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E1772F7885590053CCE9 /* Resources */ = {
+		2E685C6F2F788D9400E4ECB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E18C2F7885700053CCE9 /* Resources */ = {
+		2E685C842F788DA000E4ECB2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,28 +364,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2E10E14D2F7882E20053CCE9 /* Sources */ = {
+		2E685C462F788D6100E4ECB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E1602F7885320053CCE9 /* Sources */ = {
+		2E685C582F788D8100E4ECB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E1752F7885590053CCE9 /* Sources */ = {
+		2E685C6D2F788D9400E4ECB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2E10E18A2F7885700053CCE9 /* Sources */ = {
+		2E685C822F788DA000E4ECB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -395,25 +395,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2E10E16E2F7885320053CCE9 /* PBXTargetDependency */ = {
+		2E685C662F788D8100E4ECB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E10E1632F7885320053CCE9 /* DeviceActivityMonitorExtension */;
-			targetProxy = 2E10E16D2F7885320053CCE9 /* PBXContainerItemProxy */;
+			target = 2E685C5B2F788D8100E4ECB2 /* DeviceActivityMonitor */;
+			targetProxy = 2E685C652F788D8100E4ECB2 /* PBXContainerItemProxy */;
 		};
-		2E10E1842F7885590053CCE9 /* PBXTargetDependency */ = {
+		2E685C7C2F788D9400E4ECB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E10E1782F7885590053CCE9 /* ShieldConfigurationExtension */;
-			targetProxy = 2E10E1832F7885590053CCE9 /* PBXContainerItemProxy */;
+			target = 2E685C702F788D9400E4ECB2 /* ShieldConfiguration */;
+			targetProxy = 2E685C7B2F788D9400E4ECB2 /* PBXContainerItemProxy */;
 		};
-		2E10E1962F7885700053CCE9 /* PBXTargetDependency */ = {
+		2E685C8E2F788DA000E4ECB2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2E10E18D2F7885700053CCE9 /* ShieldActionExtension */;
-			targetProxy = 2E10E1952F7885700053CCE9 /* PBXContainerItemProxy */;
+			target = 2E685C852F788DA000E4ECB2 /* ShieldAction */;
+			targetProxy = 2E685C8D2F788DA000E4ECB2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2E10E15A2F7882E30053CCE9 /* Debug */ = {
+		2E685C532F788D6200E4ECB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -477,7 +477,7 @@
 			};
 			name = Debug;
 		};
-		2E10E15B2F7882E30053CCE9 /* Release */ = {
+		2E685C542F788D6200E4ECB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -534,7 +534,7 @@
 			};
 			name = Release;
 		};
-		2E10E15D2F7882E30053CCE9 /* Debug */ = {
+		2E685C562F788D6200E4ECB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -542,21 +542,22 @@
 				CODE_SIGN_ENTITLEMENTS = "bricked-up-ios/bricked-up-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Bricked Up uses NFC to restrict access to social media";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "Uses NFC to control access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -568,7 +569,7 @@
 			};
 			name = Debug;
 		};
-		2E10E15E2F7882E30053CCE9 /* Release */ = {
+		2E685C572F788D6200E4ECB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -576,21 +577,22 @@
 				CODE_SIGN_ENTITLEMENTS = "bricked-up-ios/bricked-up-ios.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NFCReaderUsageDescription = "Bricked Up uses NFC to restrict access to social media";
+				INFOPLIST_KEY_NFCReaderUsageDescription = "Uses NFC to control access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -602,24 +604,25 @@
 			};
 			name = Release;
 		};
-		2E10E1722F7885320053CCE9 /* Debug */ = {
+		2E685C6A2F788D8100E4ECB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitor/DeviceActivityMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitorExtension;
+				INFOPLIST_FILE = DeviceActivityMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitor;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios.DeviceActivityMonitorExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios.DeviceActivityMonitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -631,24 +634,25 @@
 			};
 			name = Debug;
 		};
-		2E10E1732F7885320053CCE9 /* Release */ = {
+		2E685C6B2F788D8100E4ECB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitor/DeviceActivityMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitorExtension;
+				INFOPLIST_FILE = DeviceActivityMonitor/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitor;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios.DeviceActivityMonitorExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios.DeviceActivityMonitor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -660,24 +664,25 @@
 			};
 			name = Release;
 		};
-		2E10E1882F7885590053CCE9 /* Debug */ = {
+		2E685C802F788D9400E4ECB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShieldConfiguration/ShieldConfiguration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShieldConfigurationExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfigurationExtension;
+				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios.ShieldConfigurationExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios.ShieldConfiguration";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -689,24 +694,25 @@
 			};
 			name = Debug;
 		};
-		2E10E1892F7885590053CCE9 /* Release */ = {
+		2E685C812F788D9400E4ECB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShieldConfiguration/ShieldConfiguration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShieldConfigurationExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfigurationExtension;
+				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios.ShieldConfigurationExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios.ShieldConfiguration";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -718,24 +724,25 @@
 			};
 			name = Release;
 		};
-		2E10E19A2F7885700053CCE9 /* Debug */ = {
+		2E685C922F788DA000E4ECB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ShieldActionExtension;
+				INFOPLIST_FILE = ShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldAction;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios.ShieldActionExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios.ShieldAction";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -747,24 +754,25 @@
 			};
 			name = Debug;
 		};
-		2E10E19B2F7885700053CCE9 /* Release */ = {
+		2E685C932F788DA000E4ECB2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RY7842758A;
+				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ShieldActionExtension;
+				INFOPLIST_FILE = ShieldAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldAction;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sam.bricked-up-ios.ShieldActionExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.bricked-up-ios.ShieldAction";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -779,52 +787,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E10E14C2F7882E20053CCE9 /* Build configuration list for PBXProject "bricked-up-ios" */ = {
+		2E685C452F788D6100E4ECB2 /* Build configuration list for PBXProject "bricked-up-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E10E15A2F7882E30053CCE9 /* Debug */,
-				2E10E15B2F7882E30053CCE9 /* Release */,
+				2E685C532F788D6200E4ECB2 /* Debug */,
+				2E685C542F788D6200E4ECB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E10E15C2F7882E30053CCE9 /* Build configuration list for PBXNativeTarget "bricked-up-ios" */ = {
+		2E685C552F788D6200E4ECB2 /* Build configuration list for PBXNativeTarget "bricked-up-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E10E15D2F7882E30053CCE9 /* Debug */,
-				2E10E15E2F7882E30053CCE9 /* Release */,
+				2E685C562F788D6200E4ECB2 /* Debug */,
+				2E685C572F788D6200E4ECB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E10E1712F7885320053CCE9 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */ = {
+		2E685C692F788D8100E4ECB2 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E10E1722F7885320053CCE9 /* Debug */,
-				2E10E1732F7885320053CCE9 /* Release */,
+				2E685C6A2F788D8100E4ECB2 /* Debug */,
+				2E685C6B2F788D8100E4ECB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E10E1872F7885590053CCE9 /* Build configuration list for PBXNativeTarget "ShieldConfigurationExtension" */ = {
+		2E685C7F2F788D9400E4ECB2 /* Build configuration list for PBXNativeTarget "ShieldConfiguration" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E10E1882F7885590053CCE9 /* Debug */,
-				2E10E1892F7885590053CCE9 /* Release */,
+				2E685C802F788D9400E4ECB2 /* Debug */,
+				2E685C812F788D9400E4ECB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2E10E1992F7885700053CCE9 /* Build configuration list for PBXNativeTarget "ShieldActionExtension" */ = {
+		2E685C912F788DA000E4ECB2 /* Build configuration list for PBXNativeTarget "ShieldAction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E10E19A2F7885700053CCE9 /* Debug */,
-				2E10E19B2F7885700053CCE9 /* Release */,
+				2E685C922F788DA000E4ECB2 /* Debug */,
+				2E685C932F788DA000E4ECB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2E10E1492F7882E20053CCE9 /* Project object */;
+	rootObject = 2E685C422F788D6100E4ECB2 /* Project object */;
 }
