@@ -10,6 +10,8 @@ struct ModeEditorView: View {
     @State private var iconName: String
     @State private var activitySelection: FamilyActivitySelection
     @State private var isPickerPresented = false
+    @State private var blockedDomains: [String]
+    @State private var newDomain = ""
 
     private var existingMode: BlockingMode?
 
@@ -18,6 +20,7 @@ struct ModeEditorView: View {
         _name = State(initialValue: mode?.name ?? "")
         _iconName = State(initialValue: mode?.iconName ?? "lock.fill")
         _activitySelection = State(initialValue: mode?.activitySelection ?? FamilyActivitySelection())
+        _blockedDomains = State(initialValue: mode?.customBlockedDomains ?? [])
     }
 
     private let icons = [
@@ -59,31 +62,47 @@ struct ModeEditorView: View {
                         Spacer()
                         Text(appsSummary)
                             .foregroundStyle(.secondary)
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
                     }
                 }
                 .familyActivityPicker(isPresented: $isPickerPresented, selection: $activitySelection)
             } header: {
                 Text("Apps to Block")
             } footer: {
-                Text("Choose which apps to block when this mode is active.")
+                Text("Select apps and categories to block when this mode is active.")
             }
 
             Section {
-                Button {
-                    isPickerPresented = true
-                } label: {
+                HStack {
+                    TextField("e.g. x.com, reddit.com", text: $newDomain)
+                        .textInputAutocapitalization(.never)
+                        .keyboardType(.URL)
+                        .autocorrectionDisabled()
+                    Button {
+                        addDomain()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .foregroundStyle(Color.accentColor)
+                    }
+                    .disabled(newDomain.trimmingCharacters(in: .whitespaces).isEmpty)
+                }
+
+                ForEach(blockedDomains, id: \.self) { domain in
                     HStack {
-                        Text("Select Websites to Block")
-                        Spacer()
-                        Text(websitesSummary)
+                        Image(systemName: "globe")
                             .foregroundStyle(.secondary)
+                        Text(domain)
                     }
                 }
-                .familyActivityPicker(isPresented: $isPickerPresented, selection: $activitySelection)
+                .onDelete { offsets in
+                    blockedDomains.remove(atOffsets: offsets)
+                }
             } header: {
                 Text("Websites to Block")
             } footer: {
-                Text("Use the Websites tab in the picker to search and select specific sites to block in Safari.")
+                Text("Enter domain names to block in Safari. For example: x.com, reddit.com, instagram.com")
             }
         }
         .navigationTitle(existingMode == nil ? "New Mode" : "Edit Mode")
@@ -108,9 +127,21 @@ struct ModeEditorView: View {
         return parts.isEmpty ? "None" : parts.joined(separator: ", ")
     }
 
-    private var websitesSummary: String {
-        let domains = activitySelection.webDomainTokens.count
-        return domains > 0 ? "\(domains) websites" : "None"
+    private func addDomain() {
+        var domain = newDomain.trimmingCharacters(in: .whitespaces).lowercased()
+        // Strip protocol prefixes
+        for prefix in ["https://", "http://", "www."] {
+            if domain.hasPrefix(prefix) {
+                domain = String(domain.dropFirst(prefix.count))
+            }
+        }
+        // Strip trailing slash
+        if domain.hasSuffix("/") {
+            domain = String(domain.dropLast())
+        }
+        guard !domain.isEmpty, !blockedDomains.contains(domain) else { return }
+        blockedDomains.append(domain)
+        newDomain = ""
     }
 
     private func save() {
@@ -118,10 +149,13 @@ struct ModeEditorView: View {
             mode.name = name
             mode.iconName = iconName
             mode.activitySelection = activitySelection
+            mode.customBlockedDomains = blockedDomains
+            mode.updateCachedCounts()
             mode.syncToSharedDefaults()
         } else {
-            let mode = BlockingMode(name: name, iconName: iconName)
+            let mode = BlockingMode(name: name, iconName: iconName, customBlockedDomains: blockedDomains)
             mode.activitySelection = activitySelection
+            mode.updateCachedCounts()
             modelContext.insert(mode)
             mode.syncToSharedDefaults()
         }

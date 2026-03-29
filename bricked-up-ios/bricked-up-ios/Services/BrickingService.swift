@@ -75,7 +75,6 @@ final class BrickingService {
         // Create session record
         let session = BrickSession(modeId: mode.id, modeName: mode.name)
         modelContext.insert(session)
-        try modelContext.save()
 
         mode.isActive = true
         try modelContext.save()

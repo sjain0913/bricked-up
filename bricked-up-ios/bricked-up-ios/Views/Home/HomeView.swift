@@ -26,7 +26,7 @@ struct HomeView: View {
                     Text(currentState == .locked ? "BRICKED" : "UNLOCKED")
                         .font(.largeTitle.bold())
 
-                    if currentState == .locked, let start = appState.sessionStartTime {
+                    if currentState == .locked, let start = sessionStart {
                         Text("Since \(start, style: .relative) ago")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
@@ -72,6 +72,7 @@ struct HomeView: View {
                                 mode: currentState == .locked ? nil : selectedMode,
                                 modelContext: modelContext
                             )
+                            refreshState()
                         }
                     } label: {
                         Label(
@@ -98,14 +99,18 @@ struct HomeView: View {
                 Spacer()
             }
             .navigationTitle("Bricked Up")
-            .onChange(of: scenePhase) { _, newPhase in
-                if newPhase == .active {
-                    // Re-read state from shared defaults in case extension changed it
-                    refreshTrigger.toggle()
-                }
+            .onAppear {
+                refreshState()
             }
-            .id(refreshTrigger)
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                refreshState()
+            }
         }
+    }
+
+    private func refreshState() {
+        currentState = AppState.shared.currentState
+        sessionStart = AppState.shared.sessionStartTime
     }
 }
 

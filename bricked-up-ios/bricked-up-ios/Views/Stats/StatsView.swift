@@ -4,111 +4,124 @@ import Charts
 
 struct StatsView: View {
     @Environment(\.modelContext) private var modelContext
+    @State private var snapshot: StatsService.Snapshot?
 
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(spacing: 20) {
-                    let stats = StatsService(modelContext: modelContext)
-
-                    // Streak card
-                    HStack(spacing: 24) {
-                        StatCard(
-                            title: "Current Streak",
-                            value: "\(stats.currentStreak())",
-                            unit: "days",
-                            icon: "flame.fill",
-                            color: .orange
-                        )
-                        StatCard(
-                            title: "Longest Streak",
-                            value: "\(stats.longestStreak())",
-                            unit: "days",
-                            icon: "trophy.fill",
-                            color: .yellow
-                        )
-                    }
-                    .padding(.horizontal)
-
-                    // Today's time
-                    HStack(spacing: 24) {
-                        StatCard(
-                            title: "Today",
-                            value: formatHours(stats.totalBrickedTime(for: Date()) / 3600),
-                            unit: "hours",
-                            icon: "clock.fill",
-                            color: .blue
-                        )
-                        StatCard(
-                            title: "Lifetime",
-                            value: formatHours(stats.totalLifetimeHours()),
-                            unit: "hours",
-                            icon: "hourglass",
-                            color: .green
-                        )
-                    }
-                    .padding(.horizontal)
-
-                    // Weekly chart
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("This Week")
-                            .font(.headline)
-                            .padding(.horizontal)
-
-                        let weeklyData = stats.weeklyData()
-                        Chart(weeklyData, id: \.date) { item in
-                            BarMark(
-                                x: .value("Day", item.date, unit: .day),
-                                y: .value("Hours", item.hours)
-                            )
-                            .foregroundStyle(.blue.gradient)
-                            .cornerRadius(4)
-                        }
-                        .chartXAxis {
-                            AxisMarks(values: .stride(by: .day)) { _ in
-                                AxisValueLabel(format: .dateTime.weekday(.abbreviated))
-                            }
-                        }
-                        .chartYAxis {
-                            AxisMarks { value in
-                                AxisValueLabel {
-                                    if let hours = value.as(Double.self) {
-                                        Text("\(hours, specifier: "%.1f")h")
-                                    }
-                                }
-                            }
-                        }
-                        .frame(height: 200)
-                        .padding(.horizontal)
-                    }
-                    .padding(.vertical)
-                    .background(Color(.systemGray6))
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .padding(.horizontal)
-
-                    // Recent sessions
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Recent Sessions")
-                            .font(.headline)
-                            .padding(.horizontal)
-
-                        let sessions = stats.recentSessions(limit: 20)
-                        if sessions.isEmpty {
-                            Text("No sessions yet. Brick your phone to get started!")
-                                .foregroundStyle(.secondary)
-                                .padding()
-                        } else {
-                            ForEach(sessions) { session in
-                                SessionRow(session: session)
-                            }
-                        }
-                    }
-                    .padding(.vertical)
+                if let snapshot {
+                    StatsContent(snapshot: snapshot)
+                } else {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .padding(.vertical)
             }
             .navigationTitle("Stats")
+            .onAppear { loadStats() }
         }
+    }
+
+    private func loadStats() {
+        snapshot = StatsService(modelContext: modelContext).computeSnapshot()
+    }
+}
+
+private struct StatsContent: View {
+    let snapshot: StatsService.Snapshot
+
+    var body: some View {
+        VStack(spacing: 20) {
+            HStack(spacing: 24) {
+                StatCard(
+                    title: "Current Streak",
+                    value: "\(snapshot.currentStreak)",
+                    unit: "days",
+                    icon: "flame.fill",
+                    color: .orange
+                )
+                StatCard(
+                    title: "Longest Streak",
+                    value: "\(snapshot.longestStreak)",
+                    unit: "days",
+                    icon: "trophy.fill",
+                    color: .yellow
+                )
+            }
+            .padding(.horizontal)
+
+            HStack(spacing: 24) {
+                StatCard(
+                    title: "Today",
+                    value: formatHours(snapshot.todayBrickedSeconds / 3600),
+                    unit: "hours",
+                    icon: "clock.fill",
+                    color: .blue
+                )
+                StatCard(
+                    title: "Lifetime",
+                    value: formatHours(snapshot.lifetimeHours),
+                    unit: "hours",
+                    icon: "hourglass",
+                    color: .green
+                )
+            }
+            .padding(.horizontal)
+
+            // Weekly chart
+            VStack(alignment: .leading, spacing: 8) {
+                Text("This Week")
+                    .font(.headline)
+                    .padding(.horizontal)
+
+                Chart(snapshot.weeklyData, id: \.date) { item in
+                    BarMark(
+                        x: .value("Day", item.date, unit: .day),
+                        y: .value("Hours", item.hours)
+                    )
+                    .foregroundStyle(.blue.gradient)
+                    .cornerRadius(4)
+                }
+                .chartXAxis {
+                    AxisMarks(values: .stride(by: .day)) { _ in
+                        AxisValueLabel(format: .dateTime.weekday(.abbreviated))
+                    }
+                }
+                .chartYAxis {
+                    AxisMarks { value in
+                        AxisValueLabel {
+                            if let hours = value.as(Double.self) {
+                                Text("\(hours, specifier: "%.1f")h")
+                            }
+                        }
+                    }
+                }
+                .frame(height: 200)
+                .padding(.horizontal)
+            }
+            .padding(.vertical)
+            .background(Color(.systemGray6))
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .padding(.horizontal)
+
+            // Recent sessions
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Recent Sessions")
+                    .font(.headline)
+                    .padding(.horizontal)
+
+                if snapshot.recentSessions.isEmpty {
+                    Text("No sessions yet. Brick your phone to get started!")
+                        .foregroundStyle(.secondary)
+                        .padding()
+                } else {
+                    ForEach(snapshot.recentSessions) { session in
+                        SessionRow(session: session)
+                    }
+                }
+            }
+            .padding(.vertical)
+        }
+        .padding(.vertical)
     }
 
     private func formatHours(_ hours: Double) -> String {
@@ -119,7 +132,7 @@ struct StatsView: View {
     }
 }
 
-struct StatCard: View {
+private struct StatCard: View {
     let title: String
     let value: String
     let unit: String
@@ -144,7 +157,7 @@ struct StatCard: View {
     }
 }
 
-struct SessionRow: View {
+private struct SessionRow: View {
     let session: BrickSession
 
     var body: some View {

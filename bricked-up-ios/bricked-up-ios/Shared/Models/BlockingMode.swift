@@ -29,24 +29,30 @@ final class BlockingMode {
         self.sortOrder = sortOrder
     }
 
+    private static let plistDecoder = PropertyListDecoder()
+    private static let plistEncoder = PropertyListEncoder()
+
     var activitySelection: FamilyActivitySelection {
         get {
             guard let data = selectedAppsData else { return FamilyActivitySelection() }
-            do {
-                return try PropertyListDecoder().decode(FamilyActivitySelection.self, from: data)
-            } catch {
-                // Fallback: try JSON in case older data was stored that way
-                return (try? JSONDecoder().decode(FamilyActivitySelection.self, from: data)) ?? FamilyActivitySelection()
-            }
+            return (try? Self.plistDecoder.decode(FamilyActivitySelection.self, from: data)) ?? FamilyActivitySelection()
         }
         set {
-            do {
-                selectedAppsData = try PropertyListEncoder().encode(newValue)
-            } catch {
-                print("Failed to encode FamilyActivitySelection: \(error)")
-                selectedAppsData = nil
-            }
+            selectedAppsData = try? Self.plistEncoder.encode(newValue)
         }
+    }
+
+    /// Cached token counts — updated on save to avoid decoding in list views.
+    var appCount: Int = 0
+    var categoryCount: Int = 0
+    var webDomainCount: Int = 0
+
+    /// Call after modifying activitySelection to update cached counts.
+    func updateCachedCounts() {
+        let sel = activitySelection
+        appCount = sel.applicationTokens.count
+        categoryCount = sel.categoryTokens.count
+        webDomainCount = sel.webDomainTokens.count
     }
 
     /// Syncs this mode's selection data to App Group UserDefaults for extension access.

@@ -59,6 +59,14 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         store.shield.applications = selection.applicationTokens.isEmpty ? nil : selection.applicationTokens
         store.shield.applicationCategories = selection.categoryTokens.isEmpty ? nil : .specific(selection.categoryTokens)
         store.shield.webDomains = selection.webDomainTokens.isEmpty ? nil : selection.webDomainTokens
+
+        // Actual website blocking via domain strings
+        let blockedDomains = sharedDefaults.stringArray(forKey: "mode-\(modeId)-domains") ?? []
+        let filtered = blockedDomains.filter { !$0.isEmpty }
+        if !filtered.isEmpty {
+            let webDomains = Set(filtered.map { WebDomain(domain: $0) })
+            store.webContent.blockedByFilter = .specific(webDomains)
+        }
     }
 
     private func removeShield(modeId: String) {

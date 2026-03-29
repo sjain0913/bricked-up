@@ -11,12 +11,21 @@ final class ShieldingService {
         let store = ManagedSettingsStore(named: storeName(for: mode))
         let selection = mode.activitySelection
 
+        // App shielding
         store.shield.applications = selection.applicationTokens.isEmpty ? nil : selection.applicationTokens
         store.shield.applicationCategories = selection.categoryTokens.isEmpty
             ? nil
             : .specific(selection.categoryTokens)
 
+        // Web domain shielding (visual overlay from picker tokens)
         store.shield.webDomains = selection.webDomainTokens.isEmpty ? nil : selection.webDomainTokens
+
+        // Actual website blocking via WebContentSettings (uses domain strings)
+        let blockedDomains = mode.customBlockedDomains.filter { !$0.isEmpty }
+        if !blockedDomains.isEmpty {
+            let webDomains = Set(blockedDomains.map { WebDomain(domain: $0) })
+            store.webContent.blockedByFilter = .specific(webDomains)
+        }
     }
 
     func removeShield(for mode: BlockingMode) {
@@ -46,6 +55,14 @@ final class ShieldingService {
             ? nil
             : .specific(selection.categoryTokens)
         store.shield.webDomains = selection.webDomainTokens.isEmpty ? nil : selection.webDomainTokens
+
+        // Actual website blocking via domain strings
+        let blockedDomains = defaults.stringArray(forKey: "mode-\(modeId)-domains") ?? []
+        let filtered = blockedDomains.filter { !$0.isEmpty }
+        if !filtered.isEmpty {
+            let webDomains = Set(filtered.map { WebDomain(domain: $0) })
+            store.webContent.blockedByFilter = .specific(webDomains)
+        }
     }
 
     static func removeShield(modeId: String) {

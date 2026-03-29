@@ -39,13 +39,19 @@ extension NFCService: NFCTagReaderSessionDelegate {
 
     func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: any Error) {
         isScanning = false
+        // Only resume if didDetect hasn't already consumed the continuation
+        guard let continuation = continuation else { return }
+        self.continuation = nil
         if let nfcError = error as? NFCReaderError,
            nfcError.code == .readerSessionInvalidationErrorUserCanceled {
-            continuation?.resume(throwing: NFCError.cancelled)
+            continuation.resume(throwing: NFCError.cancelled)
+        } else if let nfcError = error as? NFCReaderError,
+                  nfcError.code == .readerSessionInvalidationErrorFirstNDEFTagRead ||
+                  nfcError.code == .readerSessionInvalidationErrorSessionTerminatedUnexpectedly {
+            continuation.resume(throwing: NFCError.readFailed(error.localizedDescription))
         } else {
-            continuation?.resume(throwing: NFCError.readFailed(error.localizedDescription))
+            continuation.resume(throwing: NFCError.readFailed(error.localizedDescription))
         }
-        continuation = nil
     }
 
     func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
@@ -78,9 +84,11 @@ extension NFCService: NFCTagReaderSessionDelegate {
             self?.scannedTagId = tagId
             self?.isScanning = false
             session.alertMessage = "Chip recognized!"
-            session.invalidate()
-            self?.continuation?.resume(returning: tagId)
+            // Consume continuation before invalidate — invalidate triggers didInvalidateWithError
+            let cont = self?.continuation
             self?.continuation = nil
+            session.invalidate()
+            cont?.resume(returning: tagId)
         }
     }
 }

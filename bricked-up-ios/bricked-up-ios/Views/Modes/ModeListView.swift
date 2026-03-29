@@ -1,6 +1,5 @@
 import SwiftUI
 import SwiftData
-import FamilyControls
 
 struct ModeListView: View {
     @Environment(\.modelContext) private var modelContext
@@ -20,9 +19,8 @@ struct ModeListView: View {
                             VStack(alignment: .leading) {
                                 Text(mode.name)
                                     .font(.headline)
-                                let apps = mode.activitySelection.applicationTokens.count
-                                let domains = mode.activitySelection.webDomainTokens.count
-                                Text("\(apps) apps, \(domains) websites")
+                                let totalWebsites = mode.webDomainCount + mode.customBlockedDomains.count
+                                Text("\(mode.appCount) apps, \(totalWebsites) websites")
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
