@@ -1,0 +1,12 @@
+# Bricked Up - MVP Implementation Plan
+
+## Context
+Build an iOS app replicating Brick's core screen time control features using personal NFC chips. The user wants to take back control of their screen time. The existing project is a fresh SwiftUI scaffold (Hello World template, Xcode 26.4, iOS 26.4).
+
+## Top 6 MVP Features
+1. **NFC Tap-to-Lock/Unlock** — physical chip toggles blocked/unblocked state
+2. **App Blocking** — Shield selected apps using Apple's Screen Time API (FamilyControls/ManagedSettings)
+3. **Website Blocking** — Block distracting websites in Safari and browsers via WebContentRestrictions
+4. **Custom Blocking Modes** — Named profiles (Work, Sleep, Study) with different blocked apps AND websites per mode
+5. **Scheduling** — Auto-activate modes at set times/days via DeviceActivity framework
+6. **Usage Tracking & Streaks** — Dashboard showing bricked time, streaks, and session history

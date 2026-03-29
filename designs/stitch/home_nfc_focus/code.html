@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary": "#4e6363",
+            "inverse-primary": "#496368",
+            "on-secondary-fixed": "#3c4040",
+            "error": "#ee7d77",
+            "primary-fixed": "#cbe8ed",
+            "on-primary-fixed-variant": "#456065",
+            "primary": "#afccd1",
+            "surface-container-highest": "#212727",
+            "outline": "#707777",
+            "tertiary-container": "#d9f0ef",
+            "secondary-container": "#383c3c",
+            "on-background": "#e1e7e6",
+            "on-primary-fixed": "#294348",
+            "inverse-on-surface": "#545555",
+            "surface-container": "#161a1a",
+            "outline-variant": "#434949",
+            "on-secondary-container": "#bdc0bf",
+            "secondary-fixed-dim": "#d2d5d4",
+            "surface": "#0d0f0f",
+            "secondary-fixed": "#e0e3e3",
+            "on-primary": "#2a4449",
+            "on-secondary": "#1d2121",
+            "tertiary-fixed-dim": "#cde4e4",
+            "surface-container-lowest": "#000000",
+            "on-tertiary-fixed": "#354a4a",
+            "on-surface": "#e1e7e6",
+            "tertiary-dim": "#cde4e4",
+            "on-secondary-fixed-variant": "#585c5c",
+            "on-tertiary-container": "#465b5b",
+            "secondary": "#9b9e9e",
+            "surface-variant": "#212727",
+            "primary-container": "#304b50",
+            "tertiary-fixed": "#dbf2f2",
+            "on-error-container": "#ff9993",
+            "inverse-surface": "#f9f9f9",
+            "primary-fixed-dim": "#bddadf",
+            "primary-dim": "#a1bec3",
+            "on-tertiary-fixed-variant": "#516667",
+            "on-error": "#490106",
+            "tertiary": "#e7fefe",
+            "surface-bright": "#262d2e",
+            "surface-container-high": "#1c2021",
+            "on-surface-variant": "#a6acac",
+            "background": "#0d0f0f",
+            "surface-tint": "#afccd1",
+            "error-container": "#7f2927",
+            "surface-container-low": "#111414",
+            "error-dim": "#bb5551",
+            "on-primary-container": "#b9d5db",
+            "surface-dim": "#0d0f0f",
+            "secondary-dim": "#9b9e9e"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+      background-color: #0d0f0f;
+      color: #e1e7e6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .monolith-gradient {
+      background: linear-gradient(135deg, #304b50 0%, #afccd1 100%);
+    }
+    .glass-effect {
+      backdrop-filter: blur(24px);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar from COMPONENTS_10 -->
+<header class="fixed top-0 w-full z-50 bg-[#111414] px-6 h-16 flex justify-between items-center border-b border-outline-variant/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#afccd1]" data-icon="shield_lock">shield_lock</span>
+<h1 class="font-headline font-bold uppercase tracking-widest text-xl text-[#afccd1]">BRICKED UP</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/15 overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf6-Bt__L41xyYIE0x4m2LQyQzHcZaSmXdYimbK9eeF5ehGj4xRJPMbn9vpp_lCXovveSKthkBmmzDXFqHymEWebCLif5tyljTI_RESiichZlXBqWtU3nO6yeOXp2DAqYuj1bY2oXEjjxwId6as1ytWChutWffP45cvpNlOLt6v4OpN9BcBii-2Yuwb0O2A6Mzt96GDRWCKa6CuoKiZpa2mxvAca1pOHiq9ofw__LRnG-nuIrbFHDOeH5uvYobuR-_1FiCeeDPiQg"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-48 px-6 md:px-16 max-w-5xl mx-auto flex flex-col min-h-screen">
+<!-- Paired Brick Status -->
+<div class="flex flex-col gap-4 mb-12">
+<div class="flex justify-between items-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low border border-outline-variant/10">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-[10px] font-bold tracking-widest uppercase text-on-surface-variant">Paired: Onyx v2</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm" data-icon="battery_full">battery_full</span>
+<span class="font-label text-[10px] font-bold">92%</span>
+</div>
+</div>
+</div>
+<!-- Status Section -->
+<section class="mb-16">
+<div class="flex flex-col gap-2">
+<span class="font-headline font-bold text-xs uppercase tracking-[0.25em] text-primary/70">Security Protocol</span>
+<div class="flex items-baseline gap-4">
+<h2 class="font-headline font-extrabold text-6xl md:text-8xl tracking-tighter text-on-surface">Unlocked</h2>
+<div class="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(175,204,209,0.5)]"></div>
+</div>
+<p class="font-body text-on-surface-variant mt-4 max-w-sm leading-relaxed text-sm">
+        System is currently bypassed. Physical verification required via paired Brick to initiate lock state.
+      </p>
+</div>
+</section>
+<!-- Bento Grid Section -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Active Preset / Mode Card -->
+<div class="md:col-span-12 p-8 rounded-2xl bg-surface-container-high border border-outline-variant/10 relative overflow-hidden group">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-12">
+<div class="flex flex-col gap-1">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Ready to Deploy</span>
+<h3 class="font-headline font-extrabold text-3xl tracking-tight">Deep Focus</h3>
+</div>
+<div class="text-right">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-1">Duration</span>
+<span class="font-headline font-bold text-xl text-on-surface">02:00:00</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="rebase_edit">rebase_edit</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="share">share</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="videocam">videocam</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="chat">chat</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center shrink-0 border border-outline-variant/10">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="shopping_bag">shopping_bag</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center shrink-0 border border-outline-variant/10">
+<span class="text-[10px] font-bold text-on-surface-variant">+43</span>
+</div>
+</div>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed">Blocks all non-essential communication and social feeds. Phone calls from favorites remain active.</p>
+</div>
+</div>
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
+</div>
+<!-- Next Scheduled Session Card -->
+<div class="md:col-span-12 p-6 rounded-2xl bg-surface-container border border-outline-variant/10 flex items-center justify-between group hover:bg-surface-container-highest transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-low flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary" data-icon="event_repeat">event_repeat</span>
+</div>
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-0.5">Scheduled Next</span>
+<h4 class="font-headline font-bold text-base text-on-surface">Evening Wind-down</h4>
+<p class="font-body text-primary text-[11px] font-medium">Auto-start in 3h 14m</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Primary Action: The Actuator -->
+<div class="fixed bottom-28 left-0 w-full px-6 z-40">
+<div class="max-w-5xl mx-auto flex flex-col items-center gap-4">
+<button class="monolith-gradient w-full max-w-md py-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] active:scale-[0.97] transition-all group flex flex-col items-center justify-center gap-1">
+<div class="flex items-center gap-3">
+<span class="font-headline font-black text-lg uppercase tracking-[0.2em] text-on-primary">Tap Brick to Lock</span>
+<span class="material-symbols-outlined text-on-primary text-2xl animate-pulse" data-icon="nfc">nfc</span>
+</div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-primary/60 font-bold">Physical Verification Required</span>
+</button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar from COMPONENTS_10 -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#0d0f0f]/60 backdrop-blur-xl border-t border-[#434949]/15 shadow-[0_-12px_40px_rgba(225,231,230,0.04)]">
+<a class="flex flex-col items-center justify-center bg-[#212727] text-[#afccd1] rounded-xl px-4 py-2 transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="grid_view">grid_view</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-4 py-2 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="layers">layers</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Modes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-4 py-2 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="history_toggle_off">history_toggle_off</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">History</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-4 py-2 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Settings</span>
+</a>
+</nav>
+</body></html>

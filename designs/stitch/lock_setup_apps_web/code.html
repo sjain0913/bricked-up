@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#4e6363",
+              "inverse-primary": "#496368",
+              "on-secondary-fixed": "#3c4040",
+              "error": "#ee7d77",
+              "primary-fixed": "#cbe8ed",
+              "on-primary-fixed-variant": "#456065",
+              "primary": "#afccd1",
+              "surface-container-highest": "#212727",
+              "outline": "#707777",
+              "tertiary-container": "#d9f0ef",
+              "secondary-container": "#383c3c",
+              "on-background": "#e1e7e6",
+              "on-primary-fixed": "#294348",
+              "inverse-on-surface": "#545555",
+              "surface-container": "#161a1a",
+              "outline-variant": "#434949",
+              "on-secondary-container": "#bdc0bf",
+              "secondary-fixed-dim": "#d2d5d4",
+              "surface": "#0d0f0f",
+              "secondary-fixed": "#e0e3e3",
+              "on-primary": "#2a4449",
+              "on-secondary": "#1d2121",
+              "tertiary-fixed-dim": "#cde4e4",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-fixed": "#354a4a",
+              "on-surface": "#e1e7e6",
+              "tertiary-dim": "#cde4e4",
+              "on-secondary-fixed-variant": "#585c5c",
+              "on-tertiary-container": "#465b5b",
+              "secondary": "#9b9e9e",
+              "surface-variant": "#212727",
+              "primary-container": "#304b50",
+              "tertiary-fixed": "#dbf2f2",
+              "on-error-container": "#ff9993",
+              "inverse-surface": "#f9f9f9",
+              "primary-fixed-dim": "#bddadf",
+              "primary-dim": "#a1bec3",
+              "on-tertiary-fixed-variant": "#516667",
+              "on-error": "#490106",
+              "tertiary": "#e7fefe",
+              "surface-bright": "#262d2e",
+              "surface-container-high": "#1c2021",
+              "on-surface-variant": "#a6acac",
+              "background": "#0d0f0f",
+              "surface-tint": "#afccd1",
+              "error-container": "#7f2927",
+              "surface-container-low": "#111414",
+              "error-dim": "#bb5551",
+              "on-primary-container": "#b9d5db",
+              "surface-dim": "#0d0f0f",
+              "secondary-dim": "#9b9e9e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            user-select: none;
+        }
+        ::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0d0f0f] dark:bg-[#0d0f0f] flex justify-between items-center px-6 h-16 border-b border-[#434949]/10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#afccd1]">shield_lock</span>
+<div class="font-['Manrope'] font-bold tracking-widest text-[#afccd1] text-xl">BRICKED UP</div>
+</div>
+<div class="h-10 w-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/15">
+<img class="w-full h-full object-cover" data-alt="minimalist portrait of a professional user with clean lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3qp0GQwmsa0ZkNSsZ_5R8VkuNVXsjsxggDs0bKDYrtrMlBKEWIKcyYP1mQfoY5CBZyuwAsMjBuezeCGFqJCNR4EpinNpXblpo-poC0CLbJIC1jeiNcJBOZT4Tn-GhnmcHd5uK4MdDM-xrXIOwVY764A8sHIFEkTPAqPr2uKr2EADY5qM963Py3G5DU1ssmU6iEwRAx8hCVCkOvYCHR02dYmrAT2C7AylDG7znA6LcQKdCVpdaM60vdu_RgVjMMqv1ZzLEbbIeKWM"/>
+</div>
+</header>
+<main class="flex-1 mt-20 mb-32 px-10 max-w-4xl mx-auto w-full flex flex-col gap-12">
+<!-- Header Section -->
+<section class="flex flex-col gap-4">
+<h1 class="font-headline font-bold text-4xl tracking-[-0.02em] text-on-surface">Lock Setup</h1>
+<p class="font-body text-on-surface-variant max-w-md">Configure your session parameters. Once locked, you will need your physical Brick to unlock before the timer ends.</p>
+</section>
+<!-- Block Duration Section -->
+<section class="flex flex-col gap-8">
+<div class="flex justify-between items-end">
+<h2 class="font-headline font-bold text-sm uppercase tracking-widest text-outline">Block Duration</h2>
+<span class="font-headline font-black text-5xl tracking-tighter text-primary">02:00<span class="text-xl font-medium tracking-normal ml-2 text-on-surface-variant">HRS</span></span>
+</div>
+<div class="relative h-24 flex items-center group">
+<div class="absolute inset-0 bg-surface-container-low rounded-xl"></div>
+<div class="relative w-full h-full flex items-center justify-between px-6 pointer-events-none">
+<div class="flex gap-4 items-center overflow-hidden w-full justify-around opacity-40">
+<div class="h-8 w-[2px] bg-outline-variant"></div>
+<div class="h-12 w-[2px] bg-outline-variant"></div>
+<div class="h-8 w-[2px] bg-outline-variant"></div>
+<div class="h-12 w-[2px] bg-outline-variant"></div>
+<div class="h-20 w-[3px] bg-primary"></div>
+<div class="h-12 w-[2px] bg-outline-variant"></div>
+<div class="h-8 w-[2px] bg-outline-variant"></div>
+<div class="h-12 w-[2px] bg-outline-variant"></div>
+<div class="h-8 w-[2px] bg-outline-variant"></div>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2 w-1 h-24 bg-primary shadow-[0_0_20px_rgba(175,204,209,0.3)]"></div>
+</div>
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-10" max="480" min="15" step="15" type="range" value="120"/>
+</div>
+</section>
+<!-- Scheduling Section -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h2 class="font-headline font-bold text-sm uppercase tracking-widest text-outline">Set Schedule</h2>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex items-center justify-between border border-outline-variant/10 opacity-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">calendar_today</span>
+<div>
+<p class="font-headline font-bold text-sm">Automated Activation</p>
+<p class="font-body text-xs text-on-surface-variant">Enable to set recurring lock windows</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</section>
+<!-- Select Apps Section -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h2 class="font-headline font-bold text-sm uppercase tracking-widest text-outline">Select Apps</h2>
+<button class="text-primary font-label text-xs tracking-widest uppercase hover:opacity-80 active:scale-95 transition-all">Edit Selection</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container p-6 rounded-xl flex items-center gap-4 border border-outline-variant/10">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">Social</p>
+<p class="font-body text-xs text-on-surface-variant">12 Apps Blocked</p>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex items-center gap-4 border border-outline-variant/10">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">Entertainment</p>
+<p class="font-body text-xs text-on-surface-variant">8 Apps Blocked</p>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex items-center gap-4 border border-outline-variant/10">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">sports_esports</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">Games</p>
+<p class="font-body text-xs text-on-surface-variant">All Blocked</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Select Websites Section -->
+<section class="flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h2 class="font-headline font-bold text-sm uppercase tracking-widest text-outline">Select Websites</h2>
+<button class="text-primary font-label text-xs tracking-widest uppercase hover:opacity-80 active:scale-95 transition-all">Manage URLs</button>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex flex-col gap-4 border border-outline-variant/10">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">language</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">Strict Web Shield</p>
+<p class="font-body text-xs text-on-surface-variant">248 Domains Blocked</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</section>
+<!-- Preset Selection -->
+<section class="flex flex-col gap-6">
+<h2 class="font-headline font-bold text-sm uppercase tracking-widest text-outline">Presets</h2>
+<div class="flex gap-4 overflow-x-auto pb-4 no-scrollbar -mx-10 px-10">
+<div class="min-w-[200px] flex-shrink-0 bg-primary-container p-6 rounded-xl flex flex-col gap-4 border border-primary/20">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">work</span>
+<div>
+<p class="font-headline font-bold text-lg text-on-primary-container">Work</p>
+<p class="font-body text-xs text-on-primary-container/70">Social, News &amp; Slacking</p>
+</div>
+</div>
+<div class="min-w-[200px] flex-shrink-0 bg-surface-container p-6 rounded-xl flex flex-col gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">center_focus_strong</span>
+<div>
+<p class="font-headline font-bold text-lg">Total Block</p>
+<p class="font-body text-xs text-on-surface-variant">Total Isolation</p>
+</div>
+</div>
+<div class="min-w-[200px] flex-shrink-0 bg-surface-container p-6 rounded-xl flex flex-col gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">bedtime</span>
+<div>
+<p class="font-headline font-bold text-lg">Sleep</p>
+<p class="font-body text-xs text-on-surface-variant">Strict Website Control</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Confirmation Button -->
+<section class="mt-8">
+<button class="w-full h-20 rounded-xl bg-gradient-to-br from-primary-container to-primary text-on-primary font-headline font-extrabold uppercase tracking-widest text-sm shadow-2xl shadow-primary/20 active:scale-95 transition-all flex flex-col items-center justify-center gap-1 group">
+<div class="flex items-center gap-3">
+                Tap NFC to Confirm &amp; Lock
+                <span class="material-symbols-outlined text-xl group-hover:animate-pulse">contactless</span>
+</div>
+<span class="text-[10px] font-medium opacity-80 normal-case tracking-normal">Hold Brick to the back of phone</span>
+</button>
+<p class="text-center mt-6 font-body text-xs text-on-surface-variant opacity-60">Session starts immediately after physical authentication</p>
+</section>
+</main>
+<!-- BottomNavBar Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-2 bg-[#0d0f0f]/60 backdrop-blur-xl border-t border-[#434949]/15 shadow-[0_-12px_40px_rgba(225,231,230,0.04)]">
+<button class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-3 py-1 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#212727] text-[#afccd1] rounded-xl px-4 py-2 transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Modes</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-3 py-1 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined">history_toggle_off</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-3 py-1 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Settings</span>
+</button>
+</nav>
+</body></html>

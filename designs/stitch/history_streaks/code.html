@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#4e6363",
+              "inverse-primary": "#496368",
+              "on-secondary-fixed": "#3c4040",
+              "error": "#ee7d77",
+              "primary-fixed": "#cbe8ed",
+              "on-primary-fixed-variant": "#456065",
+              "primary": "#afccd1",
+              "surface-container-highest": "#212727",
+              "outline": "#707777",
+              "tertiary-container": "#d9f0ef",
+              "secondary-container": "#383c3c",
+              "on-background": "#e1e7e6",
+              "on-primary-fixed": "#294348",
+              "inverse-on-surface": "#545555",
+              "surface-container": "#161a1a",
+              "outline-variant": "#434949",
+              "on-secondary-container": "#bdc0bf",
+              "secondary-fixed-dim": "#d2d5d4",
+              "surface": "#0d0f0f",
+              "secondary-fixed": "#e0e3e3",
+              "on-primary": "#2a4449",
+              "on-secondary": "#1d2121",
+              "tertiary-fixed-dim": "#cde4e4",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-fixed": "#354a4a",
+              "on-surface": "#e1e7e6",
+              "tertiary-dim": "#cde4e4",
+              "on-secondary-fixed-variant": "#585c5c",
+              "on-tertiary-container": "#465b5b",
+              "secondary": "#9b9e9e",
+              "surface-variant": "#212727",
+              "primary-container": "#304b50",
+              "tertiary-fixed": "#dbf2f2",
+              "on-error-container": "#ff9993",
+              "inverse-surface": "#f9f9f9",
+              "primary-fixed-dim": "#bddadf",
+              "primary-dim": "#a1bec3",
+              "on-tertiary-fixed-variant": "#516667",
+              "on-error": "#490106",
+              "tertiary": "#e7fefe",
+              "surface-bright": "#262d2e",
+              "surface-container-high": "#1c2021",
+              "on-surface-variant": "#a6acac",
+              "background": "#0d0f0f",
+              "surface-tint": "#afccd1",
+              "error-container": "#7f2927",
+              "surface-container-low": "#111414",
+              "error-dim": "#bb5551",
+              "on-primary-container": "#b9d5db",
+              "surface-dim": "#0d0f0f",
+              "secondary-dim": "#9b9e9e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0d0f0f;
+            color: #e1e7e6;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar (from shared components) -->
+<header class="fixed top-0 w-full z-50 bg-[#0d0f0f] dark:bg-[#0d0f0f]">
+<div class="flex justify-between items-center w-full px-6 h-16 bg-[#111414]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#afccd1]" data-icon="shield_lock">shield_lock</span>
+<h1 class="font-['Manrope'] font-bold tracking-widest text-[#afccd1] text-xl uppercase">BRICKED UP</h1>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden transition-colors hover:bg-[#161a1a] active:scale-95 duration-200">
+<img alt="User Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgd4AP8w3zQJ7uNS29r1JNYPjFgp5BJ55uhzYaNPrMlQvaaHKV2b5sQWPCNBOey8hBMoB0DQRvb39xoWIhfx-amtPiXLt3TxAcdTxPjoDdqgwlhYqaQLKRAlT04pCAjuhYxQtBjwc0oXmyEvXxFmGCNphDJFSATLDv3fEvQdxmXfbfoexOjp_pkTyQuEqndm5zZh3ZXosw1S6Prx6SkAEzRUZT0nMZUxH2UnIZQiaBom9p0qfsctPZyGi2P_YjDvZVurExzcXUdOQ"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 md:px-12 max-w-4xl mx-auto space-y-12">
+<!-- Streak Banner (New Metric) -->
+<section class="bg-primary/10 border border-primary/20 rounded-2xl p-6 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-[0_0_20px_rgba(175,204,209,0.3)]">
+<span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Current Streak</p>
+<h3 class="font-headline font-extrabold text-2xl text-on-surface">7 Days Focus</h3>
+</div>
+</div>
+<div class="text-right">
+<p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Personal Best</p>
+<p class="font-headline font-bold text-on-surface">12 Days</p>
+</div>
+</section>
+<!-- Weekly Analytics Section (Enhanced Chart) -->
+<section>
+<div class="flex items-baseline justify-between mb-8">
+<h2 class="font-headline font-bold text-headline-sm tracking-[-0.02em] text-on-surface">Weekly Discipline</h2>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Bricked</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Active</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-2xl space-y-6">
+<div class="flex items-end justify-between h-40 gap-3">
+<!-- Monday -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-outline-variant/30 h-[80%] rounded-full"></div>
+<div class="absolute bottom-0 w-full bg-primary-container h-[40%] rounded-full transition-all group-hover:bg-primary"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Mon</span>
+</div>
+<!-- Tuesday -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-outline-variant/30 h-[90%] rounded-full"></div>
+<div class="absolute bottom-0 w-full bg-primary-container h-[75%] rounded-full transition-all group-hover:bg-primary"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Tue</span>
+</div>
+<!-- Wednesday -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-outline-variant/30 h-[70%] rounded-full"></div>
+<div class="absolute bottom-0 w-full bg-primary-container h-[60%] rounded-full transition-all group-hover:bg-primary"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Wed</span>
+</div>
+<!-- Thursday -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-outline-variant/30 h-[95%] rounded-full"></div>
+<div class="absolute bottom-0 w-full bg-primary-container h-[90%] rounded-full transition-all group-hover:bg-primary"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Thu</span>
+</div>
+<!-- Friday (Active Day) -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-outline-variant/30 h-[85%] rounded-full"></div>
+<div class="absolute bottom-0 w-full bg-gradient-to-t from-primary-container to-primary h-[82%] rounded-full shadow-[0_0_15px_rgba(175,204,209,0.2)]"></div>
+</div>
+<span class="font-label text-[10px] text-primary font-bold uppercase">Fri</span>
+</div>
+<!-- Saturday -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-surface-container-highest h-[0%] rounded-full"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Sat</span>
+</div>
+<!-- Sunday -->
+<div class="flex-1 flex flex-col items-center gap-3 group h-full">
+<div class="w-full bg-surface-container-highest rounded-full h-full relative overflow-hidden">
+<div class="absolute bottom-0 w-full bg-surface-container-highest h-[0%] rounded-full"></div>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant uppercase">Sun</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between">
+<div>
+<span class="font-label text-[10px] uppercase text-on-surface-variant tracking-wider">Total Bricked Time</span>
+<p class="font-headline font-bold text-on-surface">14.2 Hours</p>
+</div>
+<div class="text-right">
+<span class="font-label text-[10px] uppercase text-on-surface-variant tracking-wider">Usage Reduction</span>
+<p class="font-headline font-bold text-primary">-32% vs Last Week</p>
+</div>
+</div>
+</div>
+</section>
+<!-- History Section (Enhanced Logs) -->
+<section>
+<div class="flex items-baseline justify-between mb-10">
+<h2 class="font-headline font-bold text-headline-sm tracking-[-0.02em] text-on-surface">Recent Logs</h2>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer hover:text-primary transition-colors" data-icon="history_edu">history_edu</span>
+</div>
+<div class="space-y-4">
+<!-- Session 1 -->
+<div class="group flex items-center justify-between p-6 bg-surface-container rounded-2xl transition-all hover:bg-surface-container-high border-l-4 border-primary">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Friday, Oct 27</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Deep Work</span>
+</div>
+<span class="font-headline font-bold text-on-surface text-lg">Deep Focus Phase</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs text-on-surface-variant">09:00 AM — 11:30 AM</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="text-[10px] text-primary/70 font-medium">Blocked: 14 Apps, 82 Sites</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-headline font-extrabold text-primary text-xl">2h 30m</span>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-primary-container/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label text-[10px] uppercase tracking-tighter text-primary">Completed</span>
+</div>
+</div>
+</div>
+<!-- Session 2 -->
+<div class="group flex items-center justify-between p-6 bg-surface-container rounded-2xl transition-all hover:bg-surface-container-high border-l-4 border-error">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Thursday, Oct 26</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-error-dim font-bold">Sprint</span>
+</div>
+<span class="font-headline font-bold text-on-surface text-lg">Morning Sprint</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs text-on-surface-variant">08:15 AM — 08:45 AM</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="text-[10px] text-error-dim/70 font-medium">Bypassed Restricted Apps</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-headline font-extrabold text-on-surface-variant text-xl">30m</span>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-error-container/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-label text-[10px] uppercase tracking-tighter text-error">Override</span>
+</div>
+</div>
+</div>
+<!-- Session 3 -->
+<div class="group flex items-center justify-between p-6 bg-surface-container rounded-2xl transition-all hover:bg-surface-container-high border-l-4 border-primary">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Thursday, Oct 26</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Creative</span>
+</div>
+<span class="font-headline font-bold text-on-surface text-lg">Writing Session</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs text-on-surface-variant">02:00 PM — 04:45 PM</span>
+<span class="text-xs text-outline-variant">•</span>
+<span class="text-[10px] text-primary/70 font-medium">Blocked: Social Media &amp; News</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="font-headline font-extrabold text-primary text-xl">2h 45m</span>
+<div class="flex items-center gap-1.5 px-3 py-1 bg-primary-container/20 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label text-[10px] uppercase tracking-tighter text-primary">Completed</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- System Control (Condensed) -->
+<section>
+<div class="flex items-baseline justify-between mb-8">
+<h2 class="font-headline font-bold text-headline-sm tracking-[-0.02em] text-on-surface">System Control</h2>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="tune">tune</span>
+</div>
+<div class="bg-surface-container rounded-2xl overflow-hidden divide-y divide-outline-variant/10">
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="vibration">vibration</span>
+<span class="font-body font-medium text-on-surface">Brick Pairing</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] uppercase tracking-widest font-bold text-primary">Connected</span>
+<span class="material-symbols-outlined text-outline-variant text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="timer">timer</span>
+<span class="font-body font-medium text-on-surface">Emergency Override</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (from shared components) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#0d0f0f]/60 backdrop-blur-xl border-t border-[#434949]/15 shadow-[0_-12px_40px_rgba(225,231,230,0.04)]">
+<button class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-3 py-1 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined text-2xl" data-icon="grid_view">grid_view</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-3 py-1 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined text-2xl" data-icon="layers">layers</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Modes</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#212727] text-[#afccd1] rounded-xl px-4 py-1 active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined text-2xl" data-icon="history_toggle_off" style="font-variation-settings: 'FILL' 1;">history_toggle_off</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#e1e7e6]/40 px-3 py-1 hover:text-[#e1e7e6] transition-all active:scale-90 duration-300 ease-out">
+<span class="material-symbols-outlined text-2xl" data-icon="settings_input_component">settings_input_component</span>
+<span class="font-inter text-[10px] uppercase tracking-[0.05em] font-medium mt-1">Settings</span>
+</button>
+</nav>
+</body></html>
