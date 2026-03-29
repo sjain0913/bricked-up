@@ -16,6 +16,7 @@ final class AppState {
         static let activeModeId = "activeModeId"
         static let activeModeData = "activeModeData"
         static let sessionStartTime = "sessionStartTime"
+        static let lastUsedModeId = "lastUsedModeId"
     }
 
     var currentState: BrickState {
@@ -48,6 +49,15 @@ final class AppState {
     var sessionStartTime: Date? {
         get { defaults.object(forKey: Keys.sessionStartTime) as? Date }
         set { defaults.set(newValue, forKey: Keys.sessionStartTime) }
+    }
+
+    /// The last mode used for bricking — applied automatically on background NFC tap.
+    var lastUsedModeId: UUID? {
+        get {
+            guard let string = defaults.string(forKey: Keys.lastUsedModeId) else { return nil }
+            return UUID(uuidString: string)
+        }
+        set { defaults.set(newValue?.uuidString, forKey: Keys.lastUsedModeId) }
     }
 
     private init() {}

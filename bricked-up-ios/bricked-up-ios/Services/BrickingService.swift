@@ -37,6 +37,42 @@ final class BrickingService {
         }
     }
 
+    /// Programs a chip with the background NDEF toggle URL.
+    func programChip() async throws {
+        try await nfcService.writeToggleURL()
+    }
+
+    /// Toggles brick state without scanning NFC — used when app is opened via the NDEF URL scheme.
+    func toggleDirect(modelContext: ModelContext) async {
+        do {
+            if appState.currentState == .unlocked {
+                // Prefer last used mode, fall back to first available
+                let mode = try resolveLastUsedMode(modelContext: modelContext)
+                guard let mode else {
+                    errorMessage = "No mode set up. Open the app to configure a mode first."
+                    return
+                }
+                try brick(mode: mode, modelContext: modelContext)
+            } else {
+                try unbrick(modelContext: modelContext)
+            }
+            errorMessage = nil
+        } catch {
+            errorMessage = error.localizedDescription
+        }
+    }
+
+    private func resolveLastUsedMode(modelContext: ModelContext) throws -> BlockingMode? {
+        if let modeId = appState.lastUsedModeId {
+            let descriptor = FetchDescriptor<BlockingMode>(predicate: #Predicate { $0.id == modeId })
+            if let mode = try modelContext.fetch(descriptor).first { return mode }
+        }
+        // Fall back to first mode by sort order
+        var descriptor = FetchDescriptor<BlockingMode>(sortBy: [SortDescriptor(\.sortOrder)])
+        descriptor.fetchLimit = 1
+        return try modelContext.fetch(descriptor).first
+    }
+
     /// Registers a new NFC chip.
     func registerChip(name: String, modelContext: ModelContext) async throws -> NFCChip {
         let tagId = try await nfcService.scan()
@@ -67,6 +103,7 @@ final class BrickingService {
         // Update shared state for extensions
         appState.currentState = .locked
         appState.activeModeId = mode.id
+        appState.lastUsedModeId = mode.id
         appState.activeModeData = mode.selectedAppsData
         appState.sessionStartTime = Date()
         AppConstants.sharedDefaults.set(mode.name, forKey: "activeModeName")

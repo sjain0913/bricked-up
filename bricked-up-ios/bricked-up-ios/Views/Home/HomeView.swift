@@ -105,6 +105,12 @@ struct HomeView: View {
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 refreshState()
             }
+            .onReceive(NotificationCenter.default.publisher(for: .brickedUpToggleFromURL)) { _ in
+                Task {
+                    await brickingService.toggleDirect(modelContext: modelContext)
+                    refreshState()
+                }
+            }
         }
     }
 

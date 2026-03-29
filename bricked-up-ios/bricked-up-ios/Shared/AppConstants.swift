@@ -1,5 +1,9 @@
 import Foundation
 
+extension Notification.Name {
+    static let brickedUpToggleFromURL = Notification.Name("com.bricked-up-ios.toggleFromURL")
+}
+
 enum AppConstants {
     static let appGroupID = "group.com.bricked-up-ios"
 

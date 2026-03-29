@@ -46,6 +46,10 @@ struct bricked_up_iosApp: App {
                     let context = modelContainer.mainContext
                     ScheduleService.shared.syncAllSchedules(modelContext: context)
                 }
+                .onOpenURL { url in
+                    guard url.scheme == "brickedup", url.host == "toggle" else { return }
+                    NotificationCenter.default.post(name: .brickedUpToggleFromURL, object: nil)
+                }
         }
         .modelContainer(modelContainer)
     }

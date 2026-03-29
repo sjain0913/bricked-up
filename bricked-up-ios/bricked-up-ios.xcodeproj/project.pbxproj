@@ -88,11 +88,21 @@
 			);
 			target = 2E685C852F788DA000E4ECB2 /* ShieldAction */;
 		};
+		2ED4F03F2F78B73400343A59 /* Exceptions for "bricked-up-ios" folder in "bricked-up-ios" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2E685C492F788D6100E4ECB2 /* bricked-up-ios */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2E685C4C2F788D6100E4ECB2 /* bricked-up-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2ED4F03F2F78B73400343A59 /* Exceptions for "bricked-up-ios" folder in "bricked-up-ios" target */,
+			);
 			path = "bricked-up-ios";
 			sourceTree = "<group>";
 		};
@@ -545,6 +555,7 @@
 				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "bricked-up-ios/Info.plist";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "Uses NFC to control access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -580,6 +591,7 @@
 				DEVELOPMENT_TEAM = EDEQY9J7GB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "bricked-up-ios/Info.plist";
 				INFOPLIST_KEY_NFCReaderUsageDescription = "Uses NFC to control access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
