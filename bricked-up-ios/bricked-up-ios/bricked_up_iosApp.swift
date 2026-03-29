@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import FamilyControls
+import UserNotifications
 
 @main
 struct bricked_up_iosApp: App {
@@ -41,6 +42,7 @@ struct bricked_up_iosApp: App {
                         } catch {
                             print("FamilyControls authorization failed: \(error)")
                         }
+                        try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
                     }
                     // Sync all enabled schedules on launch
                     let context = modelContainer.mainContext

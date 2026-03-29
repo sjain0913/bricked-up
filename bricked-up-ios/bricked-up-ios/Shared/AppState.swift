@@ -17,6 +17,8 @@ final class AppState {
         static let activeModeData = "activeModeData"
         static let sessionStartTime = "sessionStartTime"
         static let lastUsedModeId = "lastUsedModeId"
+        static let wasScheduledLock = "wasScheduledLock"
+        static let scheduledManualOverride = "scheduledManualOverride"
     }
 
     var currentState: BrickState {
@@ -49,6 +51,19 @@ final class AppState {
     var sessionStartTime: Date? {
         get { defaults.object(forKey: Keys.sessionStartTime) as? Date }
         set { defaults.set(newValue, forKey: Keys.sessionStartTime) }
+    }
+
+    /// True when the current lock was triggered by a DeviceActivity schedule (not a manual NFC scan).
+    var wasScheduledLock: Bool {
+        get { defaults.bool(forKey: Keys.wasScheduledLock) }
+        set { defaults.set(newValue, forKey: Keys.wasScheduledLock) }
+    }
+
+    /// True when the user manually unbricked during an active scheduled window.
+    /// The extension checks this to avoid re-bricking until the window ends.
+    var scheduledManualOverride: Bool {
+        get { defaults.bool(forKey: Keys.scheduledManualOverride) }
+        set { defaults.set(newValue, forKey: Keys.scheduledManualOverride) }
     }
 
     /// The last mode used for bricking — applied automatically on background NFC tap.

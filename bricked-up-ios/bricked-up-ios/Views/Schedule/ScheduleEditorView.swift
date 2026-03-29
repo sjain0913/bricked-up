@@ -100,6 +100,12 @@ struct ScheduleEditorView: View {
         let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
         let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
 
+        // Ensure the mode's selection data is in shared defaults so the extension can read it
+        let modeDescriptor = FetchDescriptor<BlockingMode>(predicate: #Predicate { $0.id == modeId })
+        if let mode = try? modelContext.fetch(modeDescriptor).first {
+            mode.syncToSharedDefaults()
+        }
+
         if let schedule = existingSchedule {
             ScheduleService.shared.unregisterSchedule(schedule)
             schedule.modeId = modeId

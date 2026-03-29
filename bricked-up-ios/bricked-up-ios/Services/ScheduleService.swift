@@ -18,9 +18,11 @@ final class ScheduleService {
             warningTime: nil
         )
 
-        // Store schedule-to-mode mapping in shared defaults for the extension
+        // Store all data the extension needs to apply the schedule correctly
         let defaults = AppConstants.sharedDefaults
-        defaults.set(schedule.modeId.uuidString, forKey: "schedule-\(schedule.id.uuidString)-modeId")
+        let key = "schedule-\(schedule.id.uuidString)"
+        defaults.set(schedule.modeId.uuidString, forKey: "\(key)-modeId")
+        defaults.set(schedule.activeDays, forKey: "\(key)-activeDays")
 
         do {
             try center.startMonitoring(activityName, during: deviceSchedule)
@@ -34,7 +36,9 @@ final class ScheduleService {
         center.stopMonitoring([activityName])
 
         let defaults = AppConstants.sharedDefaults
-        defaults.removeObject(forKey: "schedule-\(schedule.id.uuidString)-modeId")
+        let key = "schedule-\(schedule.id.uuidString)"
+        defaults.removeObject(forKey: "\(key)-modeId")
+        defaults.removeObject(forKey: "\(key)-activeDays")
     }
 
     func syncAllSchedules(modelContext: ModelContext) {

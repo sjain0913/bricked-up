@@ -137,6 +137,13 @@ final class BrickingService {
             }
         }
 
+        // If this lock came from a schedule, flag it so the extension won't re-brick
+        // until the scheduled window ends (intervalDidEnd clears the flag)
+        if appState.wasScheduledLock {
+            appState.scheduledManualOverride = true
+            appState.wasScheduledLock = false
+        }
+
         // Update state
         appState.currentState = .unlocked
         appState.activeModeId = nil
